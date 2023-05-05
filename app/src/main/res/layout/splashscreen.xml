@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/imgView_SS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/nsllogo" />
+
+    <TextView
+        android:id="@+id/TV_SS"
+        android:layout_width="match_parent"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:textSize="16pt"
+        android:fontFamily="@font/steclo_extralight"
+        android:layout_height="wrap_content"
+        android:text="Тренажер по физике\nТестовая версия" />
+
+</LinearLayout>

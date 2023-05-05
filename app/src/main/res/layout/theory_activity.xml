@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imgView_Q"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/nsl_logo"/>
+    <TextView
+        android:id="@+id/tvText_TAct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16pt"
+        android:layout_margin="5pt"
+        android:fontFamily="@font/steclo_extralight"
+        android:textAlignment="center"
+        android:text="Теоритическая часть" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_weight="3"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/LV_TActivity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="end"
+        android:layout_gravity="end"
+        android:layout_margin="5pt"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/TButton_QAct"
+            android:layout_margin="5pt"
+            android:backgroundTint="@color/MainGreen"
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:textAlignment="center"
+            android:text="Вопросы"
+            android:onClick="GoToQuestion"
+            android:drawableTop="@drawable/question"
+            android:textSize="5pt"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/TButton_TAct"
+            android:backgroundTint="@color/MainGreen"
+            android:layout_width="match_parent"
+            android:layout_margin="5pt"
+            android:layout_weight="3"
+            android:textAlignment="center"
+            android:text="Теория"
+            android:drawableTop="@drawable/theory"
+            android:textSize="5pt"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/TButton_UAct"
+            android:backgroundTint="@color/MainGreen"
+            android:text="Аккаунт"
+            android:layout_margin="5pt"
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:drawableTop="@drawable/account"
+            android:textSize="5pt"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>

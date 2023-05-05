@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imgView_Q"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/logo_banner_foreground"/>
+    <TextView
+        android:id="@+id/tvText_QAct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13pt"
+        android:layout_margin="5pt"
+        android:fontFamily="@font/steclo_extralight"
+        android:textAlignment="center"
+        android:text="Привет, Александр!\n Вот вопросы, которые ты ещё не решил" />
+
+    <ListView
+        android:id="@+id/LV_QActivity"
+        android:layout_width="match_parent"
+        android:layout_weight="3"
+        android:layout_height="match_parent"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="end"
+        android:layout_gravity="end"
+        android:layout_margin="5pt"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/MAButton_QAct"
+            android:layout_margin="5pt"
+            android:backgroundTint="@color/MainGreen"
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:text="Вопросы"
+            android:drawableTop="@drawable/question"
+            android:textSize="5pt"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/MAButton_TAct"
+            android:backgroundTint="@color/MainGreen"
+            android:layout_width="match_parent"
+            android:layout_margin="5pt"
+            android:layout_weight="3"
+            android:textAlignment="center"
+            android:text="Теория"
+            android:textColor="@color/white"
+            android:drawableTop="@drawable/theory"
+            android:textSize="5pt"
+            android:onClick="GoToTheory"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/MAButton_UAct"
+            android:backgroundTint="@color/MainGreen"
+            android:onClick="GoToAccount"
+            android:text="Аккаунт"
+            android:layout_margin="5pt"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:layout_weight="3"
+            android:drawableTop="@drawable/account"
+            android:textSize="5pt"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>
