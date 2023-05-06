@@ -2,8 +2,10 @@ package com.example.physicstrainer;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,7 +33,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class MainAction extends BaseClass implements AdapterView.OnItemClickListener {
-    TextView test;
+    TextView nameTextView;
     LVQAdapter arQad;
     ListView LVQ;
     protected Application App = new Application();
@@ -44,8 +47,7 @@ public class MainAction extends BaseClass implements AdapterView.OnItemClickList
 
         //Qlist = App.getFullList();
         //BList = App.getBlocksList();
-
-        test = (TextView) findViewById(R.id.tvText_QAct);
+        nameTextView = (TextView) findViewById(R.id.tvText_QAct);
 
         LVQ = (ListView) findViewById(R.id.LV_QActivity);
         Application App1 = (Application)getApplicationContext();
@@ -54,6 +56,10 @@ public class MainAction extends BaseClass implements AdapterView.OnItemClickList
         LVQ.setOnItemClickListener(this);
         LVQ.deferNotifyDataSetChanged();
 
+        SharedPreferences sp = getSharedPreferences("user_name", Context.MODE_PRIVATE);
+        String name = nameTextView.getText().toString();
+        name = name.replace("name", sp.getString("user_name", "name"));
+        nameTextView.setText(name);
     }
 
     @Override
@@ -100,7 +106,8 @@ public class MainAction extends BaseClass implements AdapterView.OnItemClickList
             }
         }
         else{
-            // !!
+            Toast toast = Toast.makeText(this, "Молодец, ты закончил блок!\n Тебе начисленно 100 баллов!",Toast.LENGTH_LONG);
+            toast.show();
         }
     }
 }

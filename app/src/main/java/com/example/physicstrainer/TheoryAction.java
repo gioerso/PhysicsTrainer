@@ -18,4 +18,9 @@ public class TheoryAction extends BaseClass{
         startActivity(intent);
         finish();
     }
+    public void GoToAccount(View view){
+        Intent intent = new Intent(this, AccountActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

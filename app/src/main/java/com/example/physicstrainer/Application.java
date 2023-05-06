@@ -13,15 +13,15 @@ public class Application extends android.app.Application{
     String G_STR2;
     private final List<QuestionList> QuestionList = new ArrayList<>();
     private final List<TestList> TestList = new ArrayList<>();
-    private List<Question> qList;
-    private List<Block> blocksList;
+    private List<Question> qList = QuestionsHelper.getAllQuestions();
+    private List<Block> blocksList = BlocksHelper.getAllBlocks();
 
     private final List<String> testAnswer = new ArrayList<>();
 
     public Application(){
         super();
-        qList = QuestionsHelper.getAllQuestions();
-        blocksList = BlocksHelper.getAllBlocks();
+        //qList = QuestionsHelper.getAllQuestions();
+        //blocksList = BlocksHelper.getAllBlocks();
 
         testAnswer.add("Верно");
         testAnswer.add("Неверно");

@@ -17,7 +17,7 @@
         android:layout_margin="5pt"
         android:fontFamily="@font/steclo_extralight"
         android:textAlignment="center"
-        android:text="Привет, Александр!\n Вот вопросы, которые ты ещё не решил" />
+        android:text="Привет, name \n Вот вопросы, которые ты ещё не решил" />
 
     <ListView
         android:id="@+id/LV_QActivity"

@@ -1,5 +1,7 @@
 package com.example.physicstrainer;
 
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseClass extends AppCompatActivity {
@@ -14,4 +16,5 @@ public class BaseClass extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
+    protected void finalize() throws Throwable { Log.i("Application","Application stopped.");}
 }
