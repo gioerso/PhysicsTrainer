@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@mipmap/logo_banner_foreground"/>
+        android:src="@mipmap/logo_banner_fin_foreground"/>
     <TextView
         android:id="@+id/tvText_QAct"
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
         <Button
             android:id="@+id/MAButton_QAct"
             android:layout_margin="5pt"
-            android:backgroundTint="@color/MainGreen"
+            android:backgroundTint="@color/Main"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:textColor="@color/white"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/MAButton_TAct"
-            android:backgroundTint="@color/MainGreen"
+            android:backgroundTint="@color/Main"
             android:layout_width="match_parent"
             android:layout_margin="5pt"
             android:layout_weight="3"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/MAButton_UAct"
-            android:backgroundTint="@color/MainGreen"
+            android:backgroundTint="@color/Main"
             android:onClick="GoToAccount"
             android:text="Аккаунт"
             android:layout_margin="5pt"

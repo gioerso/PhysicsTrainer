@@ -1,36 +1,21 @@
 package com.example.physicstrainer;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentManager;
 
+import com.example.physicstrainer.lv_adapters.LVQAdapter;
 import com.example.physicstrainer.serialize.Block;
-import com.example.physicstrainer.serialize.Question;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class MainAction extends BaseClass implements AdapterView.OnItemClickListener {
     TextView nameTextView;

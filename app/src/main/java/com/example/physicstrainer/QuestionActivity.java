@@ -9,7 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
+import com.example.physicstrainer.lv_adapters.LVQAAdapter;
+
 import java.util.List;
 
 public class QuestionActivity extends BaseClass implements AdapterView.OnItemClickListener{

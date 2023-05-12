@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@mipmap/nsl_logo"/>
+        android:src="@mipmap/logo_banner_fin_foreground"/>
 
     <TextView
         android:id="@+id/tvQuestion_QActA"

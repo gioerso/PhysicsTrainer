@@ -1,4 +1,4 @@
-package com.example.physicstrainer;
+package com.example.physicstrainer.lv_adapters;
 
 import android.app.Application;
 import android.content.Context;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.physicstrainer.QuestionList;
+import com.example.physicstrainer.R;
 import com.example.physicstrainer.serialize.Block;
 
 import java.util.List;

@@ -4,6 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imgView_QA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/logo_banner_fin_foreground"/>
     <TextView
         android:id="@+id/tvText_logAct"
         android:layout_width="match_parent"
@@ -12,7 +18,7 @@
         android:layout_margin="10pt"
         android:fontFamily="@font/steclo_extralight"
         android:textAlignment="center"
-        android:text="Приветствуем вас в нашем тренажере по физике!" />
+        android:text="Приветствуем Вас!\nДавайте познакомимся?" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +30,7 @@
             android:layout_width="match_parent"
             android:textAlignment="center"
             android:textSize="24pt"
-            android:layout_margin="5pt"
+            android:layout_margin="3pt"
             android:fontFamily="@font/steclo_extralight"
             android:layout_height="wrap_content"
             android:text="Введите свое имя" />
@@ -46,7 +52,7 @@
             android:fontFamily="@font/steclo_extralight"
             android:textSize="16pt"
             android:textAllCaps="true"
-            android:backgroundTint="@color/MainGreen"
+            android:backgroundTint="@color/Main"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 </LinearLayout>

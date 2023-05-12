@@ -11,13 +11,17 @@
         <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/account_activity.xml" value="0.29743589743589743" />
         <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/achievement_act.xml" value="0.27109375" />
         <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/loginscreen.xml" value="0.2965811965811966" />
-        <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/lv_q.xml" value="0.67" />
+        <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/lv_q.xml" value="0.5041436464088398" />
+        <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/lv_theory.xml" value="0.29743589743589743" />
         <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/main_activity.xml" value="0.25" />
-        <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/questionact.xml" value="0.33" />
+        <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/questionact.xml" value="0.25" />
         <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/questionactivity.xml" value="0.3614583333333333" />
         <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/splashscreen.xml" value="0.25" />
-        <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/theory_activity.xml" value="0.22" />
+        <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/layout/theory_activity.xml" value="0.33" />
         <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16" />
+        <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/mipmap-anydpi-v26/logo.xml" value="0.113" />
+        <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/mipmap-anydpi-v26/logo_banner.xml" value="0.113" />
+        <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/mipmap-anydpi-v26/logo_banner_fin.xml" value="0.113" />
         <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/mipmap-anydpi-v26/nsl_logo.xml" value="0.16" />
         <entry key="..\:/Android_Projects/PhysicsTrainer/app/src/main/res/mipmap-anydpi-v26/nsl_logo_round.xml" value="0.16" />
       </map>
