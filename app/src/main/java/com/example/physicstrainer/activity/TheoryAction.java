@@ -1,4 +1,4 @@
-package com.example.physicstrainer;
+package com.example.physicstrainer.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 
+import com.example.physicstrainer.Application;
+import com.example.physicstrainer.BaseClass;
+import com.example.physicstrainer.R;
 import com.example.physicstrainer.lv_adapters.TheoryAdapter;
 
 public class TheoryAction extends BaseClass implements AdapterView.OnItemClickListener {
@@ -29,7 +32,7 @@ public class TheoryAction extends BaseClass implements AdapterView.OnItemClickLi
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Intent intent = new Intent(this, QuestionActivity.class);
+        Intent intent = new Intent(this, TheoryActivity.class);
 
         intent.putExtra(String.valueOf("item_id"), String.valueOf(adapterView.getItemIdAtPosition(i)));
 

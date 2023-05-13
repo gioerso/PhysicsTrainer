@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvName_AchievementElement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12pt"
+        android:layout_margin="5pt"
+        android:fontFamily="@font/steclo_extralight"
+        android:textAlignment="center"
+        android:text="ACHIEVEMENT_NAME" />
+
+    <ImageView
+        android:id="@+id/IV_AchievementElement"
+        android:layout_width="100pt"
+        android:layout_height="100pt"
+        android:layout_marginHorizontal="40pt"
+        tools:srcCompat="@mipmap/first_achievement_foreground" />
+
+    <TextView
+        android:id="@+id/tvDescription_AchievementElement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10pt"
+        android:layout_margin="5pt"
+        android:fontFamily="@font/steclo_extralight"
+        android:textAlignment="center"
+        android:text="ACHIEVEMENT_DESCRIPTION" />
+
+
+</LinearLayout>

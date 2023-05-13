@@ -1,4 +1,4 @@
-package com.example.physicstrainer;
+package com.example.physicstrainer.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,12 +11,14 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.example.physicstrainer.BaseClass;
+import com.example.physicstrainer.R;
 import com.example.physicstrainer.helpers.UsersHelper;
 import com.example.physicstrainer.serialize.User;
 
 import java.util.List;
 
-public class AccountActivity extends BaseClass{
+public class AccountActivity extends BaseClass {
     TextView tvHello;
     ListView lv_PersonalStat, lv_UserStat;
     @Override
@@ -54,8 +56,7 @@ public class AccountActivity extends BaseClass{
     }
     public void GoToAchievement(View view){
         Intent intent = new Intent(this, AchievementActivity.class);
-        startActivity(intent);
-        finish();
+        startActivityForResult(intent, ON_ACHIEVEMENT);
     }
     public void GoToTheory_AA(View view){
         Intent intent = new Intent(this, TheoryAction.class);

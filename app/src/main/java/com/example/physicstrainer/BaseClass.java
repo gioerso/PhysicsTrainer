@@ -11,6 +11,7 @@ public class BaseClass extends AppCompatActivity {
     protected static final int ON_THEORY = 0x000554;
     protected static final int FINAL_THEORY = 0x000555;
     protected static final int EXIT_QUESTION = 0x000314;
+    protected static final int ON_ACHIEVEMENT = 0x000314;
     protected static final String EXTRA_TEXT = "text";
     protected static final String EXTRA_ID = "id";
 

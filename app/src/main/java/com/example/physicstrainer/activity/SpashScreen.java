@@ -1,4 +1,4 @@
-package com.example.physicstrainer;
+package com.example.physicstrainer.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.os.HandlerCompat;
+
+import com.example.physicstrainer.BaseClass;
+import com.example.physicstrainer.R;
 
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
 
 public class SpashScreen extends BaseClass {
     ImageView img; TextView tv;

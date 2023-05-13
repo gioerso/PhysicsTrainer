@@ -1,4 +1,4 @@
-package com.example.physicstrainer;
+package com.example.physicstrainer.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.example.physicstrainer.Application;
+import com.example.physicstrainer.BaseClass;
+import com.example.physicstrainer.R;
+import com.example.physicstrainer.TestList;
 import com.example.physicstrainer.lv_adapters.LVQAAdapter;
 
 import java.util.List;

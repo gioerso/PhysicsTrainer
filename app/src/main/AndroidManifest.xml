@@ -19,12 +19,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhysicsTrainer"
         tools:targetApi="31" >
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainAction" />
-        <activity android:name=".AccountActivity" />
-        <activity android:name=".TheoryAction" />
-        <activity android:name=".QuestionActivity" />
-        <activity android:name=".SpashScreen"
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.MainAction" />
+        <activity android:name=".activity.AccountActivity" />
+        <activity android:name=".activity.TheoryAction" />
+        <activity android:name=".activity.QuestionActivity" />
+        <activity android:name=".activity.TheoryActivity" />
+        <activity android:name=".activity.AchievementActivity"/>
+        <activity android:name=".activity.SpashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,5 +34,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

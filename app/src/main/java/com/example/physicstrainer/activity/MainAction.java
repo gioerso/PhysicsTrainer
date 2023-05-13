@@ -1,4 +1,4 @@
-package com.example.physicstrainer;
+package com.example.physicstrainer.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,12 +12,17 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.physicstrainer.Application;
+import com.example.physicstrainer.BaseClass;
+import com.example.physicstrainer.QuestionList;
+import com.example.physicstrainer.R;
 import com.example.physicstrainer.lv_adapters.LVQAdapter;
 import com.example.physicstrainer.serialize.Block;
 
 import java.util.List;
 
 public class MainAction extends BaseClass implements AdapterView.OnItemClickListener {
+
     TextView nameTextView;
     LVQAdapter arQad;
     ListView LVQ;

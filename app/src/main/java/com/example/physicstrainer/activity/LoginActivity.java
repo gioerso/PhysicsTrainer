@@ -1,4 +1,4 @@
-package com.example.physicstrainer;
+package com.example.physicstrainer.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.physicstrainer.BaseClass;
+import com.example.physicstrainer.R;
 
 public class LoginActivity extends BaseClass {
     EditText et_name;

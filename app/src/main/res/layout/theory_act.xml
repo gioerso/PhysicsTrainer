@@ -3,38 +3,48 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/tvText_TAct"
+
+    <ImageView
+        android:id="@+id/imgView_QT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16pt"
+        android:layout_gravity="center"
+        android:src="@mipmap/logo_banner_fin_foreground"/>
+
+    <TextView
+        android:id="@+id/tvTitle_TAct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14pt"
+        android:textAlignment="center"
         android:layout_margin="5pt"
         android:fontFamily="@font/steclo_extralight"
-        android:textAlignment="center"
-        android:text="Твои достижения" />
+        android:text="" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_weight="3"
         android:layout_height="match_parent">
-
-        <ListView
-            android:id="@+id/LV_AchievementAct"
+        <TextView
+            android:id="@+id/tvText_TAct"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            android:textSize="12pt"
+            android:layout_margin="5pt"
+            android:fontFamily="@font/steclo_extralight"
+            android:text="Title text" />
     </ScrollView>
 
     <Button
-        android:id="@+id/ReturnToAccount"
+        android:id="@+id/QuitButton_TAct"
         android:layout_margin="5pt"
         android:backgroundTint="@color/Main"
         android:layout_width="match_parent"
         android:textColor="@color/white"
         android:textAlignment="center"
-        android:text="Вернуться"
-        android:onClick="ReturnToAccountButton"
+        android:onClick="BackToTheory"
+        android:text="Закончить прочтение и выйти"
         android:drawableTop="@drawable/question"
         android:textSize="5pt"
         android:layout_height="wrap_content"/>
-
 </LinearLayout>
