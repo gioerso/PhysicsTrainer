@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:textSize="16pt"
         android:layout_margin="5pt"
-        android:fontFamily="@font/steclo_extralight"
+        android:fontFamily="@font/ptsans_bolditalic"
         android:textAlignment="center"
         android:text="Твои достижения" />
 

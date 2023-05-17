@@ -10,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -24,8 +25,8 @@ public class BlocksHelper {
         Call<List<Block>> blocks();
     }
     private interface blockByID {
-        @GET("/get/block")
-        Call<List<Block>> blocks(@Query("=") int id);
+        @GET("/get/block={id}")
+        Call<Block> blocks(@Path("id") int id);
     }
     private interface deleteBlock {
         @GET("/delete/block")
@@ -71,10 +72,10 @@ public class BlocksHelper {
      */
     // Получение конкретного блока по его ID
     @Background
-    static List<Block> getBlockByID(int id){
+    public static Block getBlockByID(int id){
 
         Gson gson = new Gson();
-        List<Block> blocks = null;
+        Block blocks = null;
         StrictMode.setThreadPolicy(gfgPolicy);
 
         try  {
@@ -85,10 +86,10 @@ public class BlocksHelper {
                             .build();
 
             BlocksHelper.blockByID bl = retrofit.create(blockByID.class);
-            Call<List<Block>> call = bl.blocks(id);
+            Call<Block> call = bl.blocks(id);
             blocks = call.execute().body();
 
-            Log.i("Request to API", "BlocksByID: FINE! Size = " + blocks.size());
+            Log.i("Request to API", "BlocksByID: FINE!");
         } catch (Exception e) {
             Log.i("API/BlocksByID", e.getMessage());
         }

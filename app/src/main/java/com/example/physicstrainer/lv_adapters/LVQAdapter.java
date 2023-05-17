@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.example.physicstrainer.QuestionList;
 import com.example.physicstrainer.R;
+import com.example.physicstrainer.helpers.QuestionsHelper;
 import com.example.physicstrainer.serialize.Block;
+import com.example.physicstrainer.serialize.Question;
 
 import java.util.List;
 
@@ -28,6 +30,11 @@ public class LVQAdapter extends BaseAdapter {
         list = app.getFullList();
     }
 
+    public LVQAdapter(Context context, List<Block> blocksList){
+        this.context = context;
+        this.bList = blocksList;
+    }
+
     // костыль
     public int getBlockCount() {
         return bList.size();
@@ -41,14 +48,14 @@ public class LVQAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return list.size();
-        //return bList.size();
+        //return list.size();
+        return bList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        //return bList.get(i);
-        return list.get(i);
+        return bList.get(i);
+        //return list.get(i);
     }
 
     @Override
@@ -70,9 +77,12 @@ public class LVQAdapter extends BaseAdapter {
         //tv_title.setText("Раздел: "+list.get(i).GetTitle());
         //tv_text.setText(list.get(i).GetText());
 
+        List<Question> questionList = bList.get(i).GetQuestion();
+
+
         // !!!ПОМЕНЯТЬ!!!
-        tv_title.setText("Раздел: Силы в механике");
-        tv_text.setText(list.get(i).GetText());
+        tv_title.setText("Раздел: " + bList.get(i).GetName());
+        tv_text.setText(questionList.get(i).GetName());
 
         return view;
     }

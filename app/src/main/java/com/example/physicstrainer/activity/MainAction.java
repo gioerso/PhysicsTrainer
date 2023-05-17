@@ -23,11 +23,19 @@ import java.util.List;
 
 public class MainAction extends BaseClass implements AdapterView.OnItemClickListener {
 
+    public MainAction() {
+
+    }
+
+    public MainAction(List<Block> blockList) {
+        this.BlockList = blockList;
+    }
+
     TextView nameTextView;
     LVQAdapter arQad;
     ListView LVQ;
     protected Application App = new Application();
-    private List<QuestionList> Qlist;
+    private List<Block> BlockList;
     private List<Block> BList;
 
     @Override
@@ -36,12 +44,19 @@ public class MainAction extends BaseClass implements AdapterView.OnItemClickList
         setContentView(R.layout.main_activity);
 
         //Qlist = App.getFullList();
-        //BList = App.getBlocksList();
+        BlockList = App.getBlocksList();
         nameTextView = (TextView) findViewById(R.id.tvText_QAct);
 
         LVQ = (ListView) findViewById(R.id.LV_QActivity);
         Application App1 = (Application)getApplicationContext();
-        arQad = new LVQAdapter(App1, App);
+        if(BlockList == null){
+            arQad = new LVQAdapter(App1, App);
+        }
+        else
+        {
+            arQad = new LVQAdapter(App1, BlockList);
+        }
+
         LVQ.setAdapter(arQad);
         LVQ.setOnItemClickListener(this);
         LVQ.deferNotifyDataSetChanged();
@@ -56,7 +71,7 @@ public class MainAction extends BaseClass implements AdapterView.OnItemClickList
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(this, QuestionActivity.class);
 
-        intent.putExtra(String.valueOf("item_id"), String.valueOf(adapterView.getItemIdAtPosition(i)));
+        intent.putExtra(String.valueOf("item_id"), BlockList.get(i).GetID());
 
 //        for(int j = 0; i > App.getTestListSize() - 1; j++){
 //            intent.putExtra(String.valueOf("item_data"), App.getTestList().get(j));

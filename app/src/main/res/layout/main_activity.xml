@@ -15,16 +15,16 @@
         android:layout_height="wrap_content"
         android:textSize="13pt"
         android:layout_margin="5pt"
-        android:fontFamily="@font/steclo_extralight"
+        android:fontFamily="@font/ptsans_regular"
         android:textAlignment="center"
-        android:text="Привет, name \n Вот вопросы, которые ты ещё не решил" />
+        android:text="Блоки вопросов" />
+
 
     <ListView
         android:id="@+id/LV_QActivity"
         android:layout_width="match_parent"
         android:layout_weight="3"
         android:layout_height="match_parent"/>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,22 +42,9 @@
             android:layout_weight="3"
             android:textColor="@color/white"
             android:textAlignment="center"
-            android:text="Вопросы"
-            android:drawableTop="@drawable/question"
+            android:text="Главная страница"
+            android:drawableTop="@drawable/ic_baseline_format_list_bulleted_24"
             android:textSize="5pt"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/MAButton_TAct"
-            android:backgroundTint="@color/Main"
-            android:layout_width="match_parent"
-            android:layout_margin="5pt"
-            android:layout_weight="3"
-            android:textAlignment="center"
-            android:text="Теория"
-            android:textColor="@color/white"
-            android:drawableTop="@drawable/theory"
-            android:textSize="5pt"
-            android:onClick="GoToTheory"
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/MAButton_UAct"
@@ -69,7 +56,7 @@
             android:textColor="@color/white"
             android:layout_weight="3"
             android:drawableTop="@drawable/account"
-            android:textSize="5pt"
+            android:textSize="6.5pt"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 

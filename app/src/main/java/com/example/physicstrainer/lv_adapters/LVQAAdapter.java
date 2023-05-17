@@ -7,14 +7,17 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.physicstrainer.MathView;
 import com.example.physicstrainer.R;
+import com.example.physicstrainer.serialize.Question;
 
 import java.util.List;
 
 public class LVQAAdapter extends BaseAdapter {
-    List<String> list;
-    Context context;
     protected com.example.physicstrainer.Application app;
+    List<String> list;
+    List<Question> questionsList;
+    Context context;
 
     public LVQAAdapter(Context Context, android.app.Application App){
         this.context = Context;
@@ -22,7 +25,6 @@ public class LVQAAdapter extends BaseAdapter {
 
         list = app.getAnswers(0);
     }
-
     @Override
     public int getCount() {
         return list.size();
@@ -47,6 +49,7 @@ public class LVQAAdapter extends BaseAdapter {
         }
 
         TextView tv_title = (TextView) view.findViewById(R.id.TV_Q_Title);
+        //MathView mv = view.findViewById(R.id.tvText_QActA);
         TextView tv_text = (TextView) view.findViewById(R.id.TV_Q_Text);
 
         tv_title.setText(i+1 + ".");
@@ -54,5 +57,9 @@ public class LVQAAdapter extends BaseAdapter {
 
 
         return view;
+
+    }
+    public void onClick(View v) {
+        // action on click
     }
 }

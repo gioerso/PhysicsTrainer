@@ -18,7 +18,7 @@
         android:textSize="12pt"
         android:textAlignment="center"
         android:layout_margin="5pt"
-        android:fontFamily="@font/steclo_extralight"
+        android:fontFamily="@font/ptsans_bold"
         android:text="Привет, username!" />
     <TextView
         android:id="@+id/tvStat_AA"
@@ -27,7 +27,7 @@
         android:textSize="12pt"
         android:textAlignment="center"
         android:layout_margin="5pt"
-        android:fontFamily="@font/steclo_extralight"
+        android:fontFamily="@font/ptsans_regular"
         android:text="Твоя краткая статистика по пройденым заданиям:" />
 
     <ListView
@@ -44,7 +44,7 @@
         android:textSize="12pt"
         android:textAlignment="center"
         android:layout_margin="5pt"
-        android:fontFamily="@font/steclo_extralight"
+        android:fontFamily="@font/ptsans_regular"
         android:text="Статистика по пользователям приложения:" />
     <ListView
         android:id="@+id/LVStatScr_AA"

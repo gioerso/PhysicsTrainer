@@ -35,7 +35,7 @@ public class LoginActivity extends BaseClass {
         }
         else
         {
-            Intent intent = new Intent(this, MainAction.class);
+            Intent intent = new Intent(this, newMainAction.class);
             startActivity(intent);
             finish();
         }
@@ -51,7 +51,7 @@ public class LoginActivity extends BaseClass {
 
         // где-то тут должен быть блок с бд, но в API не реализовано
 
-        Intent intent = new Intent(this, MainAction.class);
+        Intent intent = new Intent(this, newMainAction.class);
         startActivity(intent);
         finish();
     }
