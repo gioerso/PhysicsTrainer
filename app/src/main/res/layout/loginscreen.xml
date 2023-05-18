@@ -48,11 +48,11 @@
             android:layout_width="match_parent"
             android:text="Вперед к знаниям!"
             android:layout_margin="5pt"
-            android:textColor="@color/white"
+            android:textColor="@color/light"
             android:fontFamily="@font/steclo_extralight"
             android:textSize="16pt"
             android:textAllCaps="true"
-            android:backgroundTint="@color/Main"
+            android:backgroundTint="@color/accent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 </LinearLayout>

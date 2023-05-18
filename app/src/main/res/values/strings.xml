@@ -7,4 +7,13 @@
     <string name="user_score">null</string>
     <string name="user_level">null</string>
     <string name="user_passed">null</string>
+    <string name="btn_back">Вернуться</string>
+    <string name="txtv_achievements">Твои достижения</string>
+    <string name="account_greetings">Привет, username!</string>
+    <string name="account_stats">Твоя краткая статистика по пройденым заданиям:</string>
+    <string name="account_leaderboard">Статистика по пользователям приложения:</string>
+    <string name="btn_achievement">Достижения</string>
+    <string name="btn_question">Вопросы</string>
+    <string name="btn_theory">Теория</string>
+    <string name="btn_account">Аккаунт</string>
 </resources>

@@ -38,9 +38,9 @@
     <Button
         android:id="@+id/QuitButton_TAct"
         android:layout_margin="5pt"
-        android:backgroundTint="@color/Main"
+        android:backgroundTint="@color/accent"
         android:layout_width="match_parent"
-        android:textColor="@color/white"
+        android:textColor="@color/light"
         android:textAlignment="center"
         android:onClick="BackToTheory"
         android:text="Закончить прочтение и выйти"

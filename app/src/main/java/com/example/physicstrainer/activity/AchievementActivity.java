@@ -19,7 +19,7 @@ public class AchievementActivity extends BaseClass {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.achievement_act);
+        setContentView(R.layout.activty_achievement);
 
         lv = (ListView) findViewById(R.id.LV_AchievementAct);
 

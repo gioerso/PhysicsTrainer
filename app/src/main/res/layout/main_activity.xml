@@ -37,10 +37,10 @@
         <Button
             android:id="@+id/MAButton_QAct"
             android:layout_margin="5pt"
-            android:backgroundTint="@color/Main"
+            android:backgroundTint="@color/accent"
             android:layout_width="match_parent"
             android:layout_weight="3"
-            android:textColor="@color/white"
+            android:textColor="@color/light"
             android:textAlignment="center"
             android:text="Главная страница"
             android:drawableTop="@drawable/ic_baseline_format_list_bulleted_24"
@@ -48,12 +48,12 @@
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/MAButton_UAct"
-            android:backgroundTint="@color/Main"
+            android:backgroundTint="@color/accent"
             android:onClick="GoToAccount"
             android:text="Аккаунт"
             android:layout_margin="5pt"
             android:layout_width="match_parent"
-            android:textColor="@color/white"
+            android:textColor="@color/light"
             android:layout_weight="3"
             android:drawableTop="@drawable/account"
             android:textSize="6.5pt"

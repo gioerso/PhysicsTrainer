@@ -39,9 +39,8 @@ public class QuestionActivity extends BaseClass implements AdapterView.OnItemCli
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.questionact);
+        setContentView(R.layout.activity_question);
 
-        lv = (ListView) findViewById(R.id.LV_QActivityA);
         tvQs = (TextView) findViewById(R.id.tvQuestion_QActA);
 
 

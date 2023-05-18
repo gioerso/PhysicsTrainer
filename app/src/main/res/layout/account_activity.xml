@@ -1,114 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/imgView_QA"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@mipmap/logo_banner_fin_foreground"/>
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="10dp"
+        android:src="@mipmap/logo_banner_fin_foreground"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+
         android:id="@+id/tvHello_AA"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12pt"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="0dp"
+        android:text="@string/account_greetings"
         android:textAlignment="center"
-        android:layout_margin="5pt"
+        android:textSize="38sp"
+        android:textColor="@color/secondary_accent"
         android:fontFamily="@font/ptsans_bold"
-        android:text="Привет, username!" />
+        app:layout_constraintTop_toBottomOf="@+id/imgView_QA" />
+
     <TextView
         android:id="@+id/tvStat_AA"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12pt"
-        android:textAlignment="center"
-        android:layout_margin="5pt"
+        android:layout_height="75dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/ptsans_regular"
-        android:text="Твоя краткая статистика по пройденым заданиям:" />
+        android:text="@string/account_stats"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/secondary_accent"
+        app:layout_constraintBottom_toTopOf="@id/LVStat_AA"
+        app:layout_constraintTop_toBottomOf="@+id/tvHello_AA" />
 
     <ListView
-    android:id="@+id/LVStat_AA"
-    android:layout_width="match_parent"
-        android:backgroundTint="@color/Main"
-    android:layout_weight="11"
-    android:layout_height="match_parent"/>
+        android:id="@+id/LVStat_AA"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="0dp"
+        android:backgroundTint="@color/accent"
+        app:layout_constraintBottom_toTopOf="@id/tvStatScr_AA"
+        app:layout_constraintTop_toBottomOf="@+id/tvStat_AA" />
 
     <TextView
         android:id="@+id/tvStatScr_AA"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12pt"
-        android:textAlignment="center"
-        android:layout_margin="5pt"
+        android:layout_height="75dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/ptsans_regular"
-        android:text="Статистика по пользователям приложения:" />
+        android:text="@string/account_leaderboard"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/secondary_accent"
+        app:layout_constraintTop_toBottomOf="@+id/LVStat_AA"
+        app:layout_constraintBottom_toTopOf="@+id/LVStatScr_AA"/>
+
     <ListView
         android:id="@+id/LVStatScr_AA"
         android:layout_width="match_parent"
-        android:layout_weight="11"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="0dp"
+        android:backgroundTint="@color/accent"
+        app:layout_constraintBottom_toTopOf="@id/AA_Buttons"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatScr_AA" />
 
-    <Button
-        android:id="@+id/AA_Achievement"
-        android:layout_margin="2pt"
-        android:backgroundTint="@color/Main"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/AA_Buttons"
         android:layout_width="match_parent"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:text="Достижения"
-        android:drawableTop="@drawable/ic_baseline_celebration_24"
-        android:textSize="5pt"
-        android:onClick="GoToAchievement"
-        android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LVStatScr_AA">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:gravity="end"
-        android:layout_gravity="end"
-        android:layout_margin="5pt"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/AA_Achievement"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@string/btn_achievement"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="@color/light"
+            android:padding="3.5dp"
+            android:background="@drawable/shp_button"
+            android:drawableTop="@drawable/ic_baseline_celebration_24"
+            android:onClick="GoToAchievement"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/AA_Button_Qact"
-            android:layout_margin="5pt"
-            android:backgroundTint="@color/Main"
-            android:layout_width="match_parent"
-            android:layout_weight="3"
-            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/btn_question"
             android:textAlignment="center"
-            android:text="Вопросы"
+            android:textSize="14sp"
+            android:textColor="@color/light"
+            android:padding="3.5dp"
+            android:background="@drawable/shp_button"
             android:drawableTop="@drawable/question"
-            android:textSize="5pt"
             android:onClick="GoToQuestion_AA"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/AA_Button_Tact"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/AA_Achievement" />
+
         <Button
             android:id="@+id/AA_Button_Tact"
-            android:backgroundTint="@color/Main"
-            android:layout_width="match_parent"
-            android:textColor="@color/white"
-            android:layout_margin="5pt"
-            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:text="@string/btn_theory"
             android:textAlignment="center"
-            android:text="Теория"
+            android:textSize="14sp"
+            android:textColor="@color/light"
+            android:padding="3.5dp"
+            android:background="@drawable/shp_button"
             android:drawableTop="@drawable/theory"
-            android:textSize="5pt"
             android:onClick="GoToTheory_AA"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/AA_Button_Uact"
+            app:layout_constraintStart_toEndOf="@id/AA_Button_Qact"
+            app:layout_constraintTop_toBottomOf="@id/AA_Achievement" />
+
         <Button
             android:id="@+id/AA_Button_Uact"
-            android:backgroundTint="@color/Main"
-            android:text="Аккаунт"
-            android:layout_margin="5pt"
-            android:layout_width="match_parent"
-            android:layout_weight="3"
-            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/btn_account"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="@color/light"
+            android:padding="3.5dp"
+            android:background="@drawable/shp_button"
             android:drawableTop="@drawable/account"
-            android:textSize="5pt"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-</LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/AA_Button_Tact"
+            app:layout_constraintTop_toBottomOf="@id/AA_Achievement" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

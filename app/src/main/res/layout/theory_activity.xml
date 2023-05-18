@@ -42,22 +42,22 @@
         <Button
             android:id="@+id/TButton_QAct"
             android:layout_margin="5pt"
-            android:backgroundTint="@color/Main"
+            android:backgroundTint="@color/accent"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:textAlignment="center"
             android:text="Вопросы"
-            android:textColor="@color/white"
+            android:textColor="@color/light"
             android:onClick="GoToQuestion"
             android:drawableTop="@drawable/question"
             android:textSize="5pt"
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/TButton_TAct"
-            android:backgroundTint="@color/Main"
+            android:backgroundTint="@color/accent"
             android:layout_width="match_parent"
             android:layout_margin="5pt"
-            android:textColor="@color/white"
+            android:textColor="@color/light"
             android:layout_weight="3"
             android:textAlignment="center"
             android:text="Теория"
@@ -66,13 +66,13 @@
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/TButton_UAct"
-            android:backgroundTint="@color/Main"
+            android:backgroundTint="@color/accent"
             android:text="Аккаунт"
             android:layout_margin="5pt"
             android:layout_width="match_parent"
             android:onClick="GoToAccount"
             android:layout_weight="3"
-            android:textColor="@color/white"
+            android:textColor="@color/light"
             android:drawableTop="@drawable/account"
             android:textSize="5pt"
             android:layout_height="wrap_content"/>
