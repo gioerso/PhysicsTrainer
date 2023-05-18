@@ -3,6 +3,7 @@ package com.example.physicstrainer.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -46,7 +47,6 @@ public class MainAction extends BaseClass implements AdapterView.OnItemClickList
         //Qlist = App.getFullList();
         BlockList = App.getBlocksList();
         nameTextView = (TextView) findViewById(R.id.tvText_QAct);
-
         LVQ = (ListView) findViewById(R.id.LV_QActivity);
         Application App1 = (Application)getApplicationContext();
         if(BlockList == null){
