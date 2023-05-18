@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.physicstrainer.QuestionList;
 import com.example.physicstrainer.R;
+import com.example.physicstrainer.helpers.BlocksHelper;
 import com.example.physicstrainer.helpers.QuestionsHelper;
 import com.example.physicstrainer.serialize.Block;
 import com.example.physicstrainer.serialize.Question;
@@ -17,7 +18,7 @@ import com.example.physicstrainer.serialize.Question;
 import java.util.List;
 
 public class LVQAdapter extends BaseAdapter {
-    List<QuestionList> list;
+    //List<QuestionList> list;
     List<Block> bList;
     Context context;
     protected com.example.physicstrainer.Application app = new com.example.physicstrainer.Application();
@@ -26,8 +27,8 @@ public class LVQAdapter extends BaseAdapter {
         this.context = Context;
         this.app = (com.example.physicstrainer.Application) App;
 
-        bList = app.getBlocksList();
-        list = app.getFullList();
+        bList = BlocksHelper.getAllBlocks();
+        //list = app.getFullList();
     }
 
     public LVQAdapter(Context context, List<Block> blocksList){

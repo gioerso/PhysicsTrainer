@@ -13,6 +13,8 @@ public class Question {
         this.text = question.text;
         this.image = question.image;
         this.achievement = question.achievement;
+        this.answer = question.answer;
+        this.type = question.type;
     }
 
     public Question(){
@@ -22,6 +24,8 @@ public class Question {
     private Block block;
     private String name;
     private String text;
+    private String answer;
+    private String type;
     private Image image;
     private Achievement achievement;
     private List<ThemeQuestion> questionThemes;
@@ -38,6 +42,8 @@ public class Question {
     public String GetText(){
         return text;
     }
+    public String GetAnswer(){return answer;}
+    public String GetAnswerType(){return type;}
     public Image GetImage(){
         return image;
     }

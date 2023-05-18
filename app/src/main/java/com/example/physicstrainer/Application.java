@@ -13,8 +13,8 @@ public class Application extends android.app.Application{
     String G_STR2;
     private final List<QuestionList> QuestionList = new ArrayList<>();
     private final List<TestList> TestList = new ArrayList<>();
-    private List<Question> qList = QuestionsHelper.getAllQuestions();
-    private List<Block> blocksList = BlocksHelper.getAllBlocks();
+    //private List<Question> qList = QuestionsHelper.getAllQuestions();
+    //private List<Block> blocksList = BlocksHelper.getAllBlocks();
 
     private final List<String> testAnswer = new ArrayList<>();
 
@@ -27,20 +27,20 @@ public class Application extends android.app.Application{
         testAnswer.add("Неверно");
 
         //blocksList.add(new Block(1, "Силы в механике", qList));
-        QuestionList.add(new QuestionList(0, "", new Question(qList.get(0)).GetName()));
+//        QuestionList.add(new QuestionList(0, "", new Question(qList.get(0)).GetName()));
 
-        for(int i = 0; i < qList.size(); i++){
-            TestList.add(new TestList(i, 1, i, 1,new Question(qList.get(i)).GetText(), testAnswer));
-        }
+//        for(int i = 0; i < qList.size(); i++){
+//            TestList.add(new TestList(i, 1, i, 1,new Question(qList.get(i)).GetText(), testAnswer));
+//        }
     }
 
 
     public List<QuestionList> getFullList() {
         return QuestionList;
     }
-    public List<Block> getBlocksList(){
-        return blocksList;
-    }
+//    public List<Block> getBlocksList(){
+//        return blocksList;
+//    }
     public int getQuestionSize() {return QuestionList.size(); }
     public List<TestList> getTestList(){
         return TestList;

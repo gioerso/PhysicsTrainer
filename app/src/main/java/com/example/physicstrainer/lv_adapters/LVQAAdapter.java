@@ -23,7 +23,7 @@ public class LVQAAdapter extends BaseAdapter {
         this.context = Context;
         this.app = (com.example.physicstrainer.Application) App;
 
-        list = app.getAnswers(0);
+        //list = app.getAnswers(0);
     }
     @Override
     public int getCount() {

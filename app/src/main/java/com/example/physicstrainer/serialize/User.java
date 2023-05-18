@@ -30,6 +30,10 @@ public class User {
         this.score = score;
         this.userFinishedBlocks = userFinishedBlocks;
     }
+    public User(long score, String name){
+        this.score = score;
+        this.name = name;
+    }
 
     public String getName(){
         return name;

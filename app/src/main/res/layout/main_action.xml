@@ -19,18 +19,6 @@
         android:fontFamily="@font/ptsans_regular"
         android:textAlignment="center"
         android:text="Привет, name \nВыбери действия\nдля продолжения" />
-
-<!--    <Button-->
-<!--        android:id="@+id/MAButton_QAct"-->
-<!--        android:layout_margin="5pt"-->
-<!--        android:backgroundTint="@color/Main"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textAlignment="center"-->
-<!--        android:text="Продолжить \nобучение"-->
-<!--        android:drawableTop="@drawable/question"-->
-<!--        android:textSize="5pt"-->
-<!--        android:layout_height="wrap_content"/>-->
     <LinearLayout
         android:layout_gravity="center"
         android:orientation="vertical"
