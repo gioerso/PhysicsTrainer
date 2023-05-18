@@ -16,8 +16,11 @@ import com.example.physicstrainer.Application;
 import com.example.physicstrainer.BaseClass;
 import com.example.physicstrainer.QuestionList;
 import com.example.physicstrainer.R;
+import com.example.physicstrainer.helpers.BlocksHelper;
+import com.example.physicstrainer.helpers.UsersHelper;
 import com.example.physicstrainer.lv_adapters.LVQAdapter;
 import com.example.physicstrainer.serialize.Block;
+import com.example.physicstrainer.serialize.User;
 
 import java.util.List;
 
@@ -43,8 +46,9 @@ public class MainAction extends BaseClass implements AdapterView.OnItemClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        //Qlist = App.getFullList();
-        BlockList = App.getBlocksList();
+        BlockList = BlocksHelper.getAllBlocks();
+        User user = new User(0,"Petya");
+        UsersHelper.newUser(user);
         nameTextView = (TextView) findViewById(R.id.tvText_QAct);
 
         LVQ = (ListView) findViewById(R.id.LV_QActivity);
@@ -97,18 +101,18 @@ public class MainAction extends BaseClass implements AdapterView.OnItemClickList
         if (resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             int id = Integer.valueOf(extras.getString(String.valueOf("item_id")));
-            String before = App.getFullList().get(id).GetText();
-            switch (requestC) {
-                case FINAL_QUESTION:
-                    App.SetQuestion(id, "Выполнено: " + before);
-                    break;
-                case EXIT_QUESTION:
-                    App.SetQuestion(id, "Провалено: " + before);
-                    break;
-                case FINAL_QUESTION_FAIL:
-                    App.SetQuestion(id, "Провалено: " + before);
-                    break;
-            }
+//            String before = App.getFullList().get(id).GetText();
+//            switch (requestC) {
+//                case FINAL_QUESTION:
+//                    App.SetQuestion(id, "Выполнено: " + before);
+//                    break;
+//                case EXIT_QUESTION:
+//                    App.SetQuestion(id, "Провалено: " + before);
+//                    break;
+//                case FINAL_QUESTION_FAIL:
+//                    App.SetQuestion(id, "Провалено: " + before);
+//                    break;
+//            }
         }
         else{
             Toast toast = Toast.makeText(this, "Молодец, ты закончил блок!\n Тебе начисленно 100 баллов!",Toast.LENGTH_LONG);
