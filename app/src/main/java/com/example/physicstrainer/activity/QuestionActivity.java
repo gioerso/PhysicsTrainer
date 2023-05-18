@@ -1,5 +1,6 @@
 package com.example.physicstrainer.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -44,6 +45,7 @@ public class QuestionActivity extends BaseClass{
     private int questionSize;
 
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +55,12 @@ public class QuestionActivity extends BaseClass{
 
         WebSettings settings = mv.getSettings();
         settings.setDefaultFontSize(25);
+
         trueAnswer = findViewById(R.id.answer_1);
         falseAnswer = findViewById(R.id.answer_2);
+        trueAnswer.setBackgroundColor(Color.rgb(41,63,66));
+        falseAnswer.setBackgroundColor(Color.rgb(41,63,66));
+
         numericL = findViewById(R.id.numeric_answer);
         buttonL = findViewById(R.id.boolean_answer);
 
@@ -91,7 +97,7 @@ public class QuestionActivity extends BaseClass{
 
     public void onFail(View view){
         if(questionsCount < questionSize - 1){
-            if(questionList.get(questionsCount - 1).GetAnswer() == "Неверно"){
+            if(questionList.get(questionsCount - 1).GetAnswer().equals("Неверно")){
                 trueAnswersCount++;
 
                 falseAnswer.setBackgroundColor(Color.GREEN);
@@ -99,8 +105,8 @@ public class QuestionActivity extends BaseClass{
 
                 SystemClock.sleep(TimeUnit.SECONDS.toMillis(2));
 
-                trueAnswer.setBackgroundColor(Color.BLUE);
-                falseAnswer.setBackgroundColor(Color.BLUE);
+                trueAnswer.setBackgroundColor(Color.rgb(41,63,66));
+                falseAnswer.setBackgroundColor(Color.rgb(41,63,66));
             }
             else{
                 trueAnswer.setBackgroundColor(Color.GREEN);
@@ -108,8 +114,8 @@ public class QuestionActivity extends BaseClass{
 
                 SystemClock.sleep(TimeUnit.SECONDS.toMillis(2));
 
-                trueAnswer.setBackgroundColor(Color.BLUE);
-                falseAnswer.setBackgroundColor(Color.BLUE);
+                trueAnswer.setBackgroundColor(Color.rgb(41,63,66));
+                falseAnswer.setBackgroundColor(Color.rgb(41,63,66));
             }
 
             questionsCount++;
@@ -134,16 +140,24 @@ public class QuestionActivity extends BaseClass{
     }
     public void onTrue(View view){
         if(questionsCount < questionSize - 1){
-            if(questionList.get(questionsCount).GetAnswer() == "Верно"){
+            if(questionList.get(questionsCount).GetAnswer().equals("Верно")){
+
                 trueAnswer.setBackgroundColor(Color.GREEN);
                 falseAnswer.setBackgroundColor(Color.RED);
                 trueAnswersCount++;
-                SystemClock.sleep(TimeUnit.SECONDS.toMillis(1));
+                SystemClock.sleep(TimeUnit.SECONDS.toMillis(2));
+
+                trueAnswer.setBackgroundColor(Color.rgb(41,63,66));
+                falseAnswer.setBackgroundColor(Color.rgb(41,63,66));
             }
             else{
                 falseAnswer.setBackgroundColor(Color.GREEN);
                 trueAnswer.setBackgroundColor(Color.RED);
-                SystemClock.sleep(TimeUnit.SECONDS.toMillis(1));
+
+                SystemClock.sleep(TimeUnit.SECONDS.toMillis(2));
+
+                trueAnswer.setBackgroundColor(Color.rgb(41,63,66));
+                falseAnswer.setBackgroundColor(Color.rgb(41,63,66));
             }
 
             questionsCount++;
