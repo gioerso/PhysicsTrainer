@@ -47,7 +47,7 @@ public class QuestionActivity extends BaseClass{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.questionact);
+        setContentView(R.layout.activity_question);
         tvQs = (TextView) findViewById(R.id.tvQuestion_QActA);
         mv = findViewById(R.id.tvText_QActA);
 

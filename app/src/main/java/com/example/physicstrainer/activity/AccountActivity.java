@@ -24,7 +24,7 @@ public class AccountActivity extends BaseClass {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.account_activity);
+        setContentView(R.layout.activity_account);
 
         tvHello = (TextView) findViewById(R.id.tvHello_AA);
 

@@ -16,4 +16,10 @@
     <string name="btn_question">Вопросы</string>
     <string name="btn_theory">Теория</string>
     <string name="btn_account">Аккаунт</string>
+    <string name="btn_send_answer">></string>
+    <string name="edt_numeric_answer">Ответ:</string>
+    <string name="btn_answer_false">Неверно</string>
+    <string name="btn_answer_true">Верно</string>
+    <string name="txtv_question">Вопрос</string>
+    <string name="placeholder_logo">logo</string>
 </resources>
