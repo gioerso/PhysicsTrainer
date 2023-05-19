@@ -31,7 +31,7 @@ public class SpashScreen extends BaseClass {
         img = (ImageView) findViewById(R.id.imgView_SS);
         tv = (TextView) findViewById(R.id.TV_SS);
 
-        SystemClock.sleep(TimeUnit.SECONDS.toMillis(3));
+        //SystemClock.sleep(TimeUnit.SECONDS.toMillis(3));
 
         Intent intent = new Intent(this, LoginActivity.class);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

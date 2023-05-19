@@ -3,7 +3,9 @@ package com.example.physicstrainer.helpers;
 import android.os.StrictMode;
 import android.util.Log;
 
+import com.example.physicstrainer.serialize.Block;
 import com.example.physicstrainer.serialize.User;
+import com.example.physicstrainer.serialize.UserBlock;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -32,7 +34,15 @@ public class UsersHelper {
     }
     private interface ICreateUser {
         @POST("/post/user")
-        Call<RegistrationResponse> registerUser(@Body User user);
+        Call<Boolean> registerUser(@Body User user);
+    }
+    private interface IBlockCompletion {
+        @POST("/post/user")
+        Call<Boolean> completeBlock(@Body UserBlock userBlock);
+    }
+    private interface IUnfinishedBlock {
+        @POST("/get/user={id}/unfinished")
+        Call<List<Block>> getUnfinishedBlocks(@Path("id") int id);
     }
 
     private static StrictMode.ThreadPolicy gfgPolicy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -94,13 +104,68 @@ public class UsersHelper {
         Retrofit retrofit =
                 new Retrofit.Builder()
                         .baseUrl(URL)
-                        .addConverterFactory(GsonConverterFactory.create(gson))
+                        .addConverterFactory(GsonConverterFactory.create())
                         .build();
 
-        UsersHelper.ICreateUser _intUser = retrofit.create(UsersHelper.ICreateUser.class);
-        Call<RegistrationResponse> call = _intUser.registerUser(user);
-        RequestBody rp = call.request().body();
 
-        return "";
+        UsersHelper.ICreateUser _intUser = retrofit.create(UsersHelper.ICreateUser.class);
+        Call<Boolean> call = _intUser.registerUser(user);
+        try
+        {
+            Boolean rp = call.execute().isSuccessful();
+        }
+        catch (Exception ex){
+            return ex.getMessage();
+        }
+
+        return "true";
+    }
+
+    public static Boolean blockCompletion(User user, Block block){
+        StrictMode.setThreadPolicy(gfgPolicy);
+
+        Retrofit retrofit =
+                new Retrofit.Builder()
+                        .baseUrl(URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+        UserBlock userBlock = new UserBlock(0,user,block);
+
+
+        UsersHelper.IBlockCompletion _blockComp = retrofit.create(UsersHelper.IBlockCompletion.class);
+        Call<Boolean> call = _blockComp.completeBlock(userBlock);
+        try
+        {
+            Boolean rp = call.execute().isSuccessful();
+        }
+        catch (Exception ex){
+            return false;
+        }
+
+        return true;
+    }
+
+    public static List<Block> getUnfinishedBlocks(int id){
+        List<Block> blockList = null;
+        StrictMode.setThreadPolicy(gfgPolicy);
+
+        try  {
+            Retrofit retrofit =
+                    new Retrofit.Builder()
+                            .baseUrl(URL)
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+
+            UsersHelper.IUnfinishedBlock usr = retrofit.create(UsersHelper.IUnfinishedBlock.class);
+            Call<List<Block>> call = usr.getUnfinishedBlocks(id);
+            blockList = call.execute().body();
+
+            Log.i("Request to API", "User/UnfinshedBlocks: FINE, size = " + blockList.size());
+        } catch (Exception e) {
+            Log.i("API/UsersError - ", e.getMessage());
+        }
+
+        return blockList;
     }
 }

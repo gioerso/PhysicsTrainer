@@ -14,6 +14,10 @@ import androidx.annotation.Nullable;
 
 import com.example.physicstrainer.BaseClass;
 import com.example.physicstrainer.R;
+import com.example.physicstrainer.helpers.UsersHelper;
+import com.example.physicstrainer.serialize.Block;
+
+import java.util.List;
 
 public class newMainAction extends BaseClass {
 
@@ -53,8 +57,11 @@ public class newMainAction extends BaseClass {
     }
 
     public void nextEducation(View view){
+        SharedPreferences sharedPreferences = getSharedPreferences("user_name", Context.MODE_PRIVATE);
 
-        Intent intent = new Intent(this, MainAction.class);
+        List<Block> blockList = UsersHelper.getUnfinishedBlocks(Integer.parseInt(sharedPreferences.getString("user_id","1")));
+
+        Intent intent = new Intent(this, new MainAction(blockList).getClass());
         startActivity(intent);
         finish();
     }

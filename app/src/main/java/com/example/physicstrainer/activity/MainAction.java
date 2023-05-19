@@ -1,6 +1,8 @@
 package com.example.physicstrainer.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.opengl.Visibility;
@@ -48,11 +50,10 @@ public class MainAction extends BaseClass implements AdapterView.OnItemClickList
         setContentView(R.layout.main_activity);
 
         BlockList = BlocksHelper.getAllBlocks();
-        User user = new User(0,"Petya");
-        UsersHelper.newUser(user);
         nameTextView = (TextView) findViewById(R.id.tvText_QAct);
         LVQ = (ListView) findViewById(R.id.LV_QActivity);
         Application App1 = (Application)getApplicationContext();
+
         if(BlockList == null){
             arQad = new LVQAdapter(App1, App);
         }
@@ -77,15 +78,11 @@ public class MainAction extends BaseClass implements AdapterView.OnItemClickList
 
         intent.putExtra(String.valueOf("item_id"), BlockList.get(i).GetID());
 
-//        for(int j = 0; i > App.getTestListSize() - 1; j++){
-//            intent.putExtra(String.valueOf("item_data"), App.getTestList().get(j));
-//        }
-
         startActivityForResult(intent, ON_QUESTION);
     }
 
-    public void GoToTheory(View view){
-        Intent intent = new Intent(this, TheoryAction.class);
+    public void toMainActivity(View view){
+        Intent intent = new Intent(this, newMainAction.class);
         startActivity(intent);
         finish();
     }
@@ -98,24 +95,52 @@ public class MainAction extends BaseClass implements AdapterView.OnItemClickList
 
     public void onActivityResult(int requestC, int resultCode,@Nullable Intent data) {
         super.onActivityResult(requestC, resultCode, data);
-        if (resultCode == RESULT_OK) {
+        if (resultCode == FINAL_QUESTION) {
             Bundle extras = data.getExtras();
-            int id = Integer.valueOf(extras.getString(String.valueOf("item_id")));
-//            String before = App.getFullList().get(id).GetText();
-//            switch (requestC) {
-//                case FINAL_QUESTION:
-//                    App.SetQuestion(id, "Выполнено: " + before);
-//                    break;
-//                case EXIT_QUESTION:
-//                    App.SetQuestion(id, "Провалено: " + before);
-//                    break;
-//                case FINAL_QUESTION_FAIL:
-//                    App.SetQuestion(id, "Провалено: " + before);
-//                    break;
-//            }
+            int trueAnswers = Integer.parseInt(extras.get("trueAnswers").toString());
+            int scoreCount = Integer.parseInt(extras.get("scoreCount").toString());
+            int blockID = Integer.parseInt(extras.get("item_id").toString());
+
+            // item_id = id block
+            SharedPreferences sp = getSharedPreferences("user_name", Context.MODE_PRIVATE);
+
+            User user = new User(Integer.parseInt(sp.getString("user_id","0")));
+            Block block = new Block(blockID);
+
+            if(trueAnswers != BlockList.get(blockID-1).GetQuestion().size()){
+                UsersHelper.blockCompletion(user,block);
+
+                AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+
+                dlgAlert.setMessage("Ты ответил на "+ trueAnswers + " вопросов, но баллов мы тебе не начислили - начисляем только за правильные решения :)");
+                dlgAlert.setTitle("Блок решен с ошибками!");
+                dlgAlert.setPositiveButton("Печалька:(",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //dismiss the dialog
+                            }
+                        });
+                dlgAlert.setCancelable(true);
+                dlgAlert.create().show();
+            }
+            else
+            {
+                AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+
+                dlgAlert.setMessage("Тебе начисленно " + scoreCount + " баллов. Продолжай в том же духе!");
+                dlgAlert.setTitle("Блок завершен!");
+                dlgAlert.setPositiveButton("Отлично!",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //dismiss the dialog
+                            }
+                        });
+                dlgAlert.setCancelable(true);
+                dlgAlert.create().show();
+            }
         }
         else{
-            Toast toast = Toast.makeText(this, "Молодец, ты закончил блок!\n Тебе начисленно 100 баллов!",Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(this, "Произошла ошибка.",Toast.LENGTH_LONG);
             toast.show();
         }
     }

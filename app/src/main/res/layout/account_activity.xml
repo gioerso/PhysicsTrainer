@@ -113,28 +113,28 @@
             android:drawableTop="@drawable/question"
             android:onClick="GoToQuestion_AA"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/AA_Button_Tact"
+            app:layout_constraintEnd_toStartOf="@id/AA_Button_Uact"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/AA_Achievement" />
 
-        <Button
-            android:id="@+id/AA_Button_Tact"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
-            android:text="@string/btn_theory"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            android:textColor="@color/light"
-            android:padding="3.5dp"
-            android:background="@drawable/shp_button"
-            android:drawableTop="@drawable/theory"
-            android:onClick="GoToTheory_AA"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/AA_Button_Uact"
-            app:layout_constraintStart_toEndOf="@id/AA_Button_Qact"
-            app:layout_constraintTop_toBottomOf="@id/AA_Achievement" />
+<!--        <Button-->
+<!--            android:id="@+id/AA_Button_Tact"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:text="@string/btn_theory"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textColor="@color/light"-->
+<!--            android:padding="3.5dp"-->
+<!--            android:background="@drawable/shp_button"-->
+<!--            android:drawableTop="@drawable/theory"-->
+<!--            android:onClick="GoToTheory_AA"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/AA_Button_Uact"-->
+<!--            app:layout_constraintStart_toEndOf="@id/AA_Button_Qact"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/AA_Achievement" />-->
 
         <Button
             android:id="@+id/AA_Button_Uact"
@@ -150,7 +150,7 @@
             android:drawableTop="@drawable/account"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/AA_Button_Tact"
+            app:layout_constraintStart_toEndOf="@id/AA_Button_Qact"
             app:layout_constraintTop_toBottomOf="@id/AA_Achievement" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

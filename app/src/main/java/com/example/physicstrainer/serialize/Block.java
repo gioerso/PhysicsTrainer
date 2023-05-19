@@ -17,6 +17,9 @@ public class Block {
         this.questions = qs;
         //this.blockFinishedUsers = block.blockFinishedUsers;
     }
+    public Block(long id){
+        this.id = id;
+    }
 
     public Block(Block bl) {
         id = bl.id;

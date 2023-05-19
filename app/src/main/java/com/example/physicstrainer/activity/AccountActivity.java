@@ -24,7 +24,7 @@ public class AccountActivity extends BaseClass {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account);
+        setContentView(R.layout.account_activity);
 
         tvHello = (TextView) findViewById(R.id.tvHello_AA);
 
@@ -37,7 +37,7 @@ public class AccountActivity extends BaseClass {
         // временный костыль
         lv_UserStat = (ListView) findViewById(R.id.LVStat_AA);
         ArrayAdapter<String> personalStatAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
-        personalStatAdapter.add("Вы набрали очков за всю историю:" + UsersHelper.getUser(1).getScore());
+        personalStatAdapter.add("Вы набрали очков за всю историю:" + UsersHelper.getUser(Integer.parseInt(sp.getString("user_id","0"))).getScore());
         lv_UserStat.setAdapter(personalStatAdapter);
 
         lv_PersonalStat = (ListView) findViewById(R.id.LVStatScr_AA);

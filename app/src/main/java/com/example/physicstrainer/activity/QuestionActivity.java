@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -29,23 +30,22 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-public class QuestionActivity extends BaseClass{
-    ListView lv;
-    LVQAAdapter arad;
+public class QuestionActivity extends BaseClass {
     int item_id;
-    TestList testList;
     List<TestList> qs;
     List<Question> questionList;
     TextView tvQs;
     ConstraintLayout numericL, buttonL;
     Button trueAnswer, falseAnswer;
     MathView mv;
+    final Handler handler = new Handler();
     int trueAnswersCount = 0;
+    int scoreCount = 0;
     private int questionsCount = 0;
     private int questionSize;
 
 
-    @SuppressLint("ResourceAsColor")
+    @SuppressLint({"ResourceAsColor", "SetTextI18n"})
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,36 +58,33 @@ public class QuestionActivity extends BaseClass{
 
         trueAnswer = findViewById(R.id.answer_1);
         falseAnswer = findViewById(R.id.answer_2);
-        trueAnswer.setBackgroundColor(Color.rgb(41,63,66));
-        falseAnswer.setBackgroundColor(Color.rgb(41,63,66));
+        trueAnswer.setBackgroundColor(Color.rgb(41, 63, 66));
+        falseAnswer.setBackgroundColor(Color.rgb(41, 63, 66));
 
         numericL = findViewById(R.id.numeric_answer);
         buttonL = findViewById(R.id.boolean_answer);
 
         Bundle extras = getIntent().getExtras();
 
-        if(extras != null){
-            item_id = Integer.valueOf(extras.get("item_id").toString());
+        if (extras != null) {
+            item_id = Integer.parseInt(extras.get("item_id").toString());
 
             Block block = BlocksHelper.getBlockByID(item_id);
             questionList = block.GetQuestion();
             questionSize = questionList.size();
 
-            tvQs.setText(tvQs.getText() + "1 из " + String.valueOf(questionSize));
+            tvQs.setText(tvQs.getText() + "1 из " + questionSize);
 
             mv.setText(questionList.get(0).GetText());
 
-            if(questionList.get(questionsCount).GetAnswerType() == "numeric"){
+            if (Objects.equals(questionList.get(questionsCount).GetAnswerType(), "numeric")) {
                 numericL.setVisibility(View.VISIBLE);
                 buttonL.setVisibility(View.GONE);
-            }
-            else{
+            } else {
                 numericL.setVisibility(View.GONE);
                 buttonL.setVisibility(View.VISIBLE);
             }
-        }
-        else
-        {
+        } else {
             questionSize = qs.size();
 
             tvQs.setText(tvQs.getText() + "1 из " + String.valueOf(questionSize));
@@ -95,112 +92,114 @@ public class QuestionActivity extends BaseClass{
         }
     }
 
-    public void onFail(View view){
-        if(questionsCount < questionSize - 1){
-            if(questionList.get(questionsCount - 1).GetAnswer().equals("Неверно")){
+    @SuppressLint("SetTextI18n")
+    public void onFail(View view) {
+        if (questionsCount < questionSize - 1) {
+            if (questionList.get(questionsCount).GetAnswer().equals("Неверно")) {
                 trueAnswersCount++;
+                scoreCount += questionList.get(questionsCount).GetAchievement().getScoreReward();
 
                 falseAnswer.setBackgroundColor(Color.GREEN);
                 trueAnswer.setBackgroundColor(Color.RED);
-
-                SystemClock.sleep(TimeUnit.SECONDS.toMillis(2));
-
-                trueAnswer.setBackgroundColor(Color.rgb(41,63,66));
-                falseAnswer.setBackgroundColor(Color.rgb(41,63,66));
-            }
-            else{
-                trueAnswer.setBackgroundColor(Color.GREEN);
+            } else
+            {
+                trueAnswer.setBackgroundColor(Color.rgb(0,128,0));
                 falseAnswer.setBackgroundColor(Color.RED);
-
-                SystemClock.sleep(TimeUnit.SECONDS.toMillis(2));
-
-                trueAnswer.setBackgroundColor(Color.rgb(41,63,66));
-                falseAnswer.setBackgroundColor(Color.rgb(41,63,66));
             }
 
-            questionsCount++;
-            mv.setText(questionList.get(questionsCount).GetText());
-            tvQs.setText("Вопрос: " + String.valueOf(questionsCount + 1) + " из " + String.valueOf(questionSize));
+            final Runnable r = new Runnable() {
+                public void run() {
+                    trueAnswer.setBackgroundColor(Color.rgb(41, 63, 66));
+                    falseAnswer.setBackgroundColor(Color.rgb(41, 63, 66));
 
-            if(questionList.get(questionsCount).GetAnswerType() == "numeric"){
-                numericL.setVisibility(View.VISIBLE);
-                buttonL.setVisibility(View.GONE);
-            }
-            else{
-                numericL.setVisibility(View.GONE);
-                buttonL.setVisibility(View.VISIBLE);
-            }
-        }
-        else{
-            setResult(FINAL_QUESTION);
-            Intent intent = getIntent();
-            intent.putExtra("trueAnswers", trueAnswersCount);
-            finish();
-        }
-    }
-    public void onTrue(View view){
-        if(questionsCount < questionSize - 1){
-            if(questionList.get(questionsCount).GetAnswer().equals("Верно")){
+                    questionsCount++;
+                    mv.setText(questionList.get(questionsCount).GetText());
+                    tvQs.setText("Вопрос: " + String.valueOf(questionsCount + 1) + " из " + String.valueOf(questionSize));
+                }
+            };
+            handler.postDelayed(r, 1000);
 
-                trueAnswer.setBackgroundColor(Color.GREEN);
-                falseAnswer.setBackgroundColor(Color.RED);
+            if (questionList.get(questionsCount).GetAnswerType().equals("0"))
+            {
+                setNumericVisible();
+            }
+            else
+            {
+                setButtonVisible();
+            }
+        } else
+        {
+            if (questionList.get(questionsCount).GetAnswer().equals("Верно"))
+            {
                 trueAnswersCount++;
-                SystemClock.sleep(TimeUnit.SECONDS.toMillis(2));
-
-                trueAnswer.setBackgroundColor(Color.rgb(41,63,66));
-                falseAnswer.setBackgroundColor(Color.rgb(41,63,66));
-            }
-            else{
-                falseAnswer.setBackgroundColor(Color.GREEN);
-                trueAnswer.setBackgroundColor(Color.RED);
-
-                SystemClock.sleep(TimeUnit.SECONDS.toMillis(2));
-
-                trueAnswer.setBackgroundColor(Color.rgb(41,63,66));
-                falseAnswer.setBackgroundColor(Color.rgb(41,63,66));
             }
 
-            questionsCount++;
-            mv.setText(questionList.get(questionsCount).GetText());
-            tvQs.setText("Вопрос: " + String.valueOf(questionsCount + 1) + " из " + String.valueOf(questionSize));
-        }
-        else{
-            setResult(FINAL_QUESTION);
-            Intent intent = getIntent();
-            intent.putExtra("trueAnswers", trueAnswersCount);
+            Intent data = getIntent();
+            data.putExtra("trueAnswers", trueAnswersCount);
+            data.putExtra("scoreCount", scoreCount);
+
+            setResult(FINAL_QUESTION,data);
             finish();
         }
     }
 
+    @SuppressLint("SetTextI18n")
+    public void onTrue(View view) {
+        if (questionsCount < questionSize - 1) {
+            if (questionList.get(questionsCount).GetAnswer().equals("Верно"))
+            {
+                trueAnswer.setBackgroundColor(Color.rgb(0,128,0));
+                falseAnswer.setBackgroundColor(Color.RED);
+                trueAnswersCount++;
+                scoreCount += questionList.get(questionsCount).GetAchievement().getScoreReward();
+            }
+            else
+            {
+                falseAnswer.setBackgroundColor(Color.GREEN);
+                trueAnswer.setBackgroundColor(Color.RED);
+            }
 
+            final Runnable r = new Runnable() {
+                public void run() {
+                    trueAnswer.setBackgroundColor(Color.rgb(41, 63, 66));
+                    falseAnswer.setBackgroundColor(Color.rgb(41, 63, 66));
 
-//    @Override
-//    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//        if(questionsCount < questionSize - 1){
-//            questionsCount++;
-//            mv.setText(questionList.get(questionsCount).GetText());
-//            tvQs.setText("Вопрос: " + String.valueOf(questionsCount + 1) + " из " + String.valueOf(questionSize));
-//        }
-//        else{
-//            setResult(FINAL_QUESTION);
-//            Intent intent = getIntent();
-//            intent.putExtra(String.valueOf("item_id"), item_id);
-//            finish();
-//        }
-////        if(i == testList.GetTrueAnswer()){
-////            setResult(FINAL_QUESTION);
-////            Intent intent = getIntent();
-////            intent.putExtra(String.valueOf("item_id"), item_id);
-////            finish();
-////        }
-////        else{
-////            setResult(FINAL_QUESTION_FAIL);
-////            Intent intent = getIntent();
-////            intent.putExtra(String.valueOf("item_id"), item_id);
-////            finish();
-////        }
-//        arad.notifyDataSetChanged();
-//        lv.invalidateViews();
-//    }
+                    questionsCount++;
+                    mv.setText(questionList.get(questionsCount).GetText());
+                    tvQs.setText("Вопрос: " + String.valueOf(questionsCount + 1) + " из " + String.valueOf(questionSize));
+                }
+            };
+            handler.postDelayed(r, 1000);
+
+            if (questionList.get(questionsCount).GetAnswerType().equals("0"))
+            {
+                setNumericVisible();
+            }
+            else
+            {
+                setButtonVisible();
+            }
+        }
+        else
+        {
+            if (questionList.get(questionsCount).GetAnswer().equals("Верно"))
+            {
+                trueAnswersCount++;
+            }
+            Intent data = getIntent();
+            data.putExtra("trueAnswers", trueAnswersCount);
+            data.putExtra("scoreCount", scoreCount);
+
+            setResult(FINAL_QUESTION,data);
+            finish();
+        }
+    }
+    private void setNumericVisible(){
+        numericL.setVisibility(View.VISIBLE);
+        buttonL.setVisibility(View.GONE);
+    }
+    private void setButtonVisible(){
+        numericL.setVisibility(View.GONE);
+        buttonL.setVisibility(View.VISIBLE);
+    }
 }

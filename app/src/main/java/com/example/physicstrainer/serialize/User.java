@@ -21,6 +21,9 @@ public class User {
         this.score = user.score;
         this.userFinishedBlocks = user.userFinishedBlocks;
     }
+    public User(long id){
+        this.id = id;
+    }
 
     protected void finalize() throws Throwable{ System.out.println("DS/User: User destroyed");};
 

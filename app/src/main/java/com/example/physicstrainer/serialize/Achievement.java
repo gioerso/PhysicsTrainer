@@ -15,4 +15,12 @@ public enum Achievement {
         this.complexity = complexity;
         this.scoreReward = scoreReward;
     }
+
+    public long getScoreReward() {
+        return scoreReward;
+    }
+
+    public int getComplexity() {
+        return complexity;
+    }
 }

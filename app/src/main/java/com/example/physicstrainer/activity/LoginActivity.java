@@ -12,6 +12,10 @@ import androidx.annotation.Nullable;
 
 import com.example.physicstrainer.BaseClass;
 import com.example.physicstrainer.R;
+import com.example.physicstrainer.helpers.UsersHelper;
+import com.example.physicstrainer.serialize.User;
+
+import java.util.List;
 
 public class LoginActivity extends BaseClass {
     EditText et_name;
@@ -46,10 +50,16 @@ public class LoginActivity extends BaseClass {
         SharedPreferences sp = getSharedPreferences("user_name", Context.MODE_PRIVATE);
 
         SharedPreferences.Editor e = sp.edit();
-        e.putString("user_name", et_name.getText().toString());
-        e.commit();
 
         // где-то тут должен быть блок с бд, но в API не реализовано
+        User user = new User(0,et_name.getText().toString(),0,null);
+        UsersHelper.newUser(user);
+        List<User> userList = UsersHelper.getUsers();
+        e.putString("user_id", String.valueOf(userList.size()+1));
+        e.putString("user_name", et_name.getText().toString());
+
+        e.commit();
+
 
         Intent intent = new Intent(this, newMainAction.class);
         startActivity(intent);

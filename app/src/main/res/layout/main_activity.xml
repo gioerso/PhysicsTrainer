@@ -42,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:textColor="@color/light"
+            android:onClick="toMainActivity"
             android:textAlignment="center"
             android:text="Главная страница"
             android:drawableTop="@drawable/ic_baseline_format_list_bulleted_24"

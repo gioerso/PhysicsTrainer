@@ -20,6 +20,6 @@
     <string name="edt_numeric_answer">Ответ:</string>
     <string name="btn_answer_false">Неверно</string>
     <string name="btn_answer_true">Верно</string>
-    <string name="txtv_question">Вопрос</string>
+    <string name="txtv_question">Вопрос: </string>
     <string name="placeholder_logo">logo</string>
 </resources>

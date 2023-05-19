@@ -1,7 +1,7 @@
 package com.example.physicstrainer.serialize;
 
 public class UserBlock {
-    public  UserBlock (User user, Block block){
+    public  UserBlock (long id, User user, Block block){
         this.user = user;
         this.block = block;
     }
